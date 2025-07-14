@@ -1,0 +1,30 @@
+modules:
+  jira:adminPage:
+    - key: golden-app-hello-world-admin-page
+      resource: main
+      resolver:
+        function: resolver
+      title: Golden App
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  runtime:
+    name: nodejs22.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/7466712b-42d4-40b9-b40b-47ea167b668d
+permissions:
+  scopes:
+    - storage:app
+remotes:
+  - key: remote-backend
+    baseUrl: "https://dragonball-api.com"
+    operations:
+      - storage
+      - fetch
+    storage:
+      inScopeEUD: false
