@@ -20,6 +20,7 @@ app:
 permissions:
   scopes:
     - storage:app
+    - import:import-configuration:cmdb
 remotes:
   - key: remote-backend
     baseUrl: "https://dragonball-api.com"
@@ -28,3 +29,7 @@ remotes:
       - fetch
     storage:
       inScopeEUD: false
+  - key: atlassian-jira
+    operations:
+      - fetch
+    baseUrl: '*.atlassian.com'
